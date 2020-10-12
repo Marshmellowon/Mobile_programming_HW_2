@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Mobile_programming_HW2</string>
+    <string name="mobile_programming_hw_app_2">Mobile Programming HW App 2</string>
+    <string name="menu_btn">menu</string>
+    <string name="menu1_option">menu1</string>
+    <string name="menu2_option">menu2</string>
+    <string name="menu3_option">menu3</string>
+    <string name="info_input">개인 정보 입력</string>
+    <string name="name">이름</string>
+    <string name="phone_num">전화번호</string>
+    <string name="location">거주 지역</string>
+    <string name="email">이메일</string>
+    <string name="seoul">서울</string>
+    <string name="gyunggi">경기</string>
+    <string name="gangwon">강원</string>
+    <string name="choongchung">충청</string>
+    <string name="gyungsang">경상</string>
+    <string name="jeonla">전라</string>
+    <string name="jeju">제주도</string>
+</resources>

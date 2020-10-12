@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/seoul"
+        android:title="@string/seoul" />
+    <item
+        android:id="@+id/gyung"
+        android:title="@string/gyunggi" />
+    <item
+        android:id="@+id/gang"
+        android:title="@string/gangwon" />
+    <item
+        android:id="@+id/choong"
+        android:title="@string/choongchung" />
+    <item
+        android:id="@+id/gyungsang"
+        android:title="@string/gyungsang" />
+    <item
+        android:id="@+id/jeon"
+        android:title="@string/jeonla" />
+    <item
+        android:id="@+id/jeju"
+        android:title="@string/jeju" />
+
+</menu>
