@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Menu_Activity">
 
     <TextView
+        android:id="@+id/title_"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -31,12 +33,14 @@
             tools:ignore="UselessParent">
 
             <TextView
+                android:id="@+id/txtname"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/name"
                 android:textSize="25sp" />
 
             <TextView
+                android:id="@+id/txtphone"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="75dp"
@@ -44,6 +48,7 @@
                 android:textSize="25sp" />
 
             <TextView
+                android:id="@+id/txtloc"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="68dp"
@@ -51,6 +56,7 @@
                 android:textSize="25sp" />
 
             <TextView
+                android:id="@+id/txtemail"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="68dp"
@@ -101,6 +107,16 @@
                 android:autofillHints="name"
                 android:inputType="textEmailAddress"
                 tools:ignore="LabelFor" />
+
+            <Button
+                android:id="@+id/fin_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:onClick="onClick"
+                android:text="@string/fin_vbtn" />
 
         </LinearLayout>
 
