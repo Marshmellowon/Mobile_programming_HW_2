@@ -21,4 +21,12 @@
     <string name="ok">확인</string>
     <string name="real_fin">종료하시겠습니까?</string>
     <string name="description_fin">프로그램을 종료합니다.</string>
+    <string name="file_stream">File Stream</string>
+    <string name="info_user">회원 정보</string>
+    <string name="info_user_name">이름</string>
+    <string name="info_user_loc">거주지</string>
+    <string name="txt_view">학교</string>
+    <string name="hint_info_name">이름을 입력하세요</string>
+    <string name="hint_info_loc">거주지를 입력하세요</string>
+    <string name="hint_user_school">학교를 입력하세요</string>
 </resources>

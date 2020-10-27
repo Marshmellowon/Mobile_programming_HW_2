@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.File;
+import java.io.FilePermission;
+
 public class MainActivity extends AppCompatActivity {
-    Button menu;
+    Button menu, file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_btn:
                 Intent intent = new Intent(getApplicationContext(), Menu_Activity.class);
                 startActivity(intent);
+            case R.id.file_stream:
+                Intent intent_file = new Intent(getApplicationContext(), File_process.class);
+                startActivity(intent_file);
         }
     }
 }
