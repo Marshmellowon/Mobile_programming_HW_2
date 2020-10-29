@@ -19,63 +19,46 @@ import java.util.Date;
 
 public class File_process extends AppCompatActivity {
 
-    EditText name, loc, school;
-    String fileName;
-
-    long milNow;
-    Date mDate;
-    @SuppressLint("SimpleDateFormat")
-    SimpleDateFormat mFormat = new SimpleDateFormat("yyyy_MM_dd");
+    Button btn1, btn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_process);
 
-        /*id 정의*/
-        name = findViewById(R.id.info_name);
-        loc = findViewById(R.id.info_loc);
-        school = findViewById(R.id.info_school);
+        btn1 = findViewById(R.id.write_file);
+        btn2 = findViewById(R.id.read_file);
 
-    }
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    FileOutputStream outputStream = openFileOutput("file.txt", Context.MODE_PRIVATE);
+                    String str = "안드로이드";
+                    outputStream.write(str.getBytes());
+                    outputStream.close();
+                    Toast.makeText(File_process.this, "파일 생성됨", Toast.LENGTH_SHORT).show();
 
-    public void OnClick(View v) {
-        FileOutputStream outputStream;
-        if (v.getId() == R.id.save_info) {
-            try {
-                /*milNow = System.currentTimeMillis();
-                mDate = new Date(milNow);*/
-
-                fileName = name.toString() + ".txt";
-                String str = Read_Info(fileName);
-                outputStream = openFileOutput(fileName, Context.MODE_PRIVATE);
-                System.out.println(" 여기는 됨?");
-
-                String getName = name.getText().toString();
-                String getLoc = loc.getText().toString();
-                String getSchool = school.getText().toString();
-                String User_info = getName + "," + getLoc + "," + getSchool;
-                outputStream.write(User_info.getBytes());
-                outputStream.close();
-                Toast.makeText(File_process.this, "저장되었습니다.", Toast.LENGTH_SHORT).show();
-            } catch (IOException e) {
-                Toast.makeText(File_process.this, "error", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    System.out.println("error");
+                }
             }
-        }
-    }
+        });
 
-    String Read_Info(String fileName) {
-        FileInputStream fIn;
-        try {
-            fIn = openFileInput(fileName);
-            byte[] txt = new byte[200];
-            fIn.read(txt);
-            fIn.close();
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    FileInputStream inputStream = openFileInput("file.txt");
+                    byte[] txt = new byte[30];
+                    inputStream.read(txt);
+                    String str = new String(txt);
+                    Toast.makeText(File_process.this, str, Toast.LENGTH_SHORT).show();
 
-        } catch (IOException e) {
-            System.out.println("error");
-
-        }
-        return "";
+                } catch (Exception e) {
+                    System.out.println("error input");
+                }
+            }
+        });
     }
 }

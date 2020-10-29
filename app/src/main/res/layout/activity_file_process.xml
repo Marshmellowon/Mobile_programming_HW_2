@@ -1,81 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:columnCount="2"
     android:orientation="vertical"
+    android:rowCount="5"
     tools:context=".File_process">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/info_user"
+        android:layout_columnSpan="2"
+        android:layout_marginTop="30dp"
+        android:text="@string/user_info"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        style="@style/Txt_View"
+        android:text="@string/info_user_name" />
 
-        <!--TextView-->
-        <LinearLayout style="@style/Vertical_Linear">
+    <TextView
+        style="@style/Txt_View"
+        android:text="@string/info_user_loc" />
 
-            <TextView
-                style="@style/TextView_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/info_user_name" />
+    <TextView
+        style="@style/Txt_View"
+        android:text="@string/txt_view" />
 
-            <TextView
-                style="@style/TextView_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/info_user_loc" />
+    <EditText
+        style="@style/Edit_text_file"
+        android:autofillHints=""
+        android:hint="@string/hint_info_name"
+        android:inputType="textPersonName" />
 
-            <TextView
-                style="@style/TextView_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_view" />
-        </LinearLayout>
+    <EditText
+        style="@style/Edit_text_file"
+        android:autofillHints=""
+        android:hint="@string/hint_info_loc"
+        android:inputType="text" />
 
-        <LinearLayout
-            style="@style/Vertical_Linear"
-            android:layout_marginStart="60dp">
+    <EditText
+        style="@style/Edit_text_file"
+        android:autofillHints=""
+        android:hint="@string/hint_user_school"
+        android:inputType="text" />
 
-            <EditText
-                android:id="@+id/info_name"
-                style="@style/EditText_input"
-                android:autofillHints=""
-                android:hint="@string/hint_info_name"
-                android:inputType="textPersonName"
-                tools:ignore="LabelFor" />
-
-            <EditText
-                android:id="@+id/info_loc"
-                style="@style/EditText_input"
-                android:autofillHints=""
-                android:hint="@string/hint_info_loc"
-                android:inputType="text"
-                tools:ignore="LabelFor" />
-
-            <EditText
-                android:id="@+id/info_school"
-                style="@style/EditText_input"
-                android:autofillHints=""
-                android:hint="@string/hint_user_school"
-                android:inputType="text"
-                tools:ignore="LabelFor" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/save_info"
-            style="@style/Save_info"
-            android:onClick="OnClick" />
-
-
-    </LinearLayout>
-</LinearLayout>
+    <Button
+        android:layout_row="5"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_gravity="bottom" />
+</GridLayout>

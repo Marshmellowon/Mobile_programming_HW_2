@@ -29,4 +29,7 @@
     <string name="hint_info_name">이름을 입력하세요</string>
     <string name="hint_info_loc">거주지를 입력하세요</string>
     <string name="hint_user_school">학교를 입력하세요</string>
+    <string name="write_file">파일 쓰기</string>
+    <string name="read_file">파일 읽기</string>
+    <string name="user_info">회원 정보</string>
 </resources>
