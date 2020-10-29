@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="2"
+    android:columnCount="3"
     android:orientation="vertical"
-    android:rowCount="5"
+    android:rowCount="4"
     tools:context=".File_process">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_columnSpan="2"
+        android:layout_columnSpan="3"
         android:layout_marginTop="30dp"
         android:text="@string/user_info"
         android:textAlignment="center"
@@ -31,26 +31,46 @@
         android:text="@string/txt_view" />
 
     <EditText
+        android:id="@+id/name"
         style="@style/Edit_text_file"
         android:autofillHints=""
         android:hint="@string/hint_info_name"
         android:inputType="textPersonName" />
 
     <EditText
+        android:id="@+id/loc"
         style="@style/Edit_text_file"
         android:autofillHints=""
         android:hint="@string/hint_info_loc"
         android:inputType="text" />
 
     <EditText
+        android:id="@+id/school"
         style="@style/Edit_text_file"
         android:autofillHints=""
         android:hint="@string/hint_user_school"
         android:inputType="text" />
 
-    <Button
-        android:layout_row="5"
-        android:layout_column="0"
-        android:layout_columnSpan="2"
-        android:layout_gravity="bottom" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="3"
+        android:layout_columnSpan="3"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:text="@string/save" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/read_info" />
+    </LinearLayout>
+
 </GridLayout>

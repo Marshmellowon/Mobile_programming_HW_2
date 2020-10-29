@@ -32,4 +32,6 @@
     <string name="write_file">파일 쓰기</string>
     <string name="read_file">파일 읽기</string>
     <string name="user_info">회원 정보</string>
+    <string name="save">정보 저장</string>
+    <string name="read_info">정보 읽기</string>
 </resources>
