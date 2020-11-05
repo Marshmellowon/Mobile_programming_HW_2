@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.FilePermission;
 
 public class MainActivity extends AppCompatActivity {
-    Button menu, file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +27,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.file_stream:
                 Intent intent_file = new Intent(getApplicationContext(), File_process.class);
                 startActivity(intent_file);
+            case R.id.sd_card:
+                Intent SD_card = new Intent(getApplicationContext(), SD_card.class);
+                startActivity(SD_card);
+            case R.id.graphic:
+                Intent graphic = new Intent(getApplicationContext(), Graphic_image.class);
+                startActivity(graphic);
         }
     }
 }

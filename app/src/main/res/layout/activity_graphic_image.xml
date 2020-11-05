@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Graphic_image">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center"
+        tools:ignore="Suspicious0dp">
+
+        <ImageButton
+            android:id="@+id/zoom_in"
+            style="@style/ImageButton"
+            android:contentDescription="@string/zoom_in"
+            android:src="@drawable/round_zoom_in_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/zoom_out"
+            style="@style/ImageButton"
+            android:contentDescription="@string/zoom_out"
+            android:src="@drawable/round_zoom_out_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/rotate"
+            style="@style/ImageButton"
+            android:contentDescription="@string/rotate"
+            android:src="@drawable/round_rotate_left_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/bright"
+            style="@style/ImageButton"
+            android:contentDescription="@string/bright"
+            android:src="@drawable/round_exposure_black_18dp" />
+
+        <ImageButton
+            android:id="@+id/blur"
+            style="@style/ImageButton"
+            android:contentDescription="@string/blur"
+            android:src="@drawable/round_blur_on_black_18dp" />
+
+        <Button
+            android:id="@+id/emboss"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/e"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pictureLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="9"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seek"
+        style="@android:style/Widget.Holo.Light.SeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        android:max="100"
+        android:visibility="invisible" />
+</LinearLayout>

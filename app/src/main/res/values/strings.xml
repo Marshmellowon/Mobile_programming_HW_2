@@ -34,4 +34,14 @@
     <string name="user_info">회원 정보</string>
     <string name="save">정보 저장</string>
     <string name="read_info">정보 읽기</string>
+    <string name="sd_card">SD_Card</string>
+    <string name="prev_img">이전그림</string>
+    <string name="next_img">다음그림</string>
+    <string name="graphic">Graphic</string>
+    <string name="zoom_in">zoom in</string>
+    <string name="zoom_out">zoom out</string>
+    <string name="rotate">rotate</string>
+    <string name="bright">bright</string>
+    <string name="blur">blur</string>
+    <string name="e">E</string>
 </resources>
