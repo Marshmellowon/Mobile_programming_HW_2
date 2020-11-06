@@ -6,9 +6,11 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.EmbossMaskFilter;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +32,17 @@ public class Graphic_image extends AppCompatActivity {
     static float scaleY = 1;
     static float angle = 0;
     static float color = 1;
+    static int state = 1;
+    static int stateEmboss = 11;
+
+
+    public static Paint setBlur(Paint p) {
+        /*blur*/
+        BlurMaskFilter bMask;
+        bMask = new BlurMaskFilter(30, BlurMaskFilter.Blur.NORMAL);
+        p.setMaskFilter(bMask);
+        return p;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +51,14 @@ public class Graphic_image extends AppCompatActivity {
         setTitle("포토샵");
 
         seekBar = findViewById(R.id.seek);
-
         LinearLayout picLayout = findViewById(R.id.pictureLayout);
+        zoomIn = findViewById(R.id.zoom_in);
+        zoomOut = findViewById(R.id.zoom_out);
+        Rotate = findViewById(R.id.rotate);
+        Bright = findViewById(R.id.bright);
+        Blur = findViewById(R.id.blur);
+        Emboss = findViewById(R.id.emboss);
+
         graphicView = new GraphicView(this);
         picLayout.addView(graphicView);
         clickIcons();
@@ -53,11 +72,56 @@ public class Graphic_image extends AppCompatActivity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+    }
+
+    public void clickIcons() {
+        zoomIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scaleX += 0.2f;
+                scaleY += 0.2f;
+                graphicView.invalidate();
+            }
+        });
+        zoomOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scaleX -= 0.2f;
+                scaleY -= 0.2f;
+                graphicView.invalidate();
+            }
+        });
+        Rotate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                angle += 20;
+                graphicView.invalidate();
+            }
+        });
+        Bright.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                seekBar.setVisibility(View.VISIBLE);
+            }
+        });
+        Blur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                state = 0;
+                graphicView.invalidate();
+            }
+        });
+        Emboss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stateEmboss = 111;
+                graphicView.invalidate();
 
             }
         });
@@ -66,17 +130,14 @@ public class Graphic_image extends AppCompatActivity {
 
     private static class GraphicView extends View {
 
-
         public GraphicView(Context context) {
             super(context);
         }
-
 
         @SuppressLint("DrawAllocation")
         @Override
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-
 
             @SuppressLint("DrawAllocation")
             Bitmap pic = BitmapFactory.decodeResource(getResources(), R.drawable.jongro);
@@ -93,52 +154,26 @@ public class Graphic_image extends AppCompatActivity {
                     0, 0, color, 0, 0,
                     0, 0, 0, 1, 0
             };
+            /*밝기*/
             @SuppressLint("DrawAllocation") ColorMatrix cm = new ColorMatrix(array);
             paint.setColorFilter(new ColorMatrixColorFilter(cm));
 
+            /*blur*/
+            if (state == 0) {
+                setBlur(paint);
+            }
+            if (stateEmboss == 111) {
+                EmbossMaskFilter eMask;
+                eMask = new EmbossMaskFilter(new float[]{3, 3, 10}, 0.5f, 5, 10);
+                paint.setMaskFilter(eMask);
+            }
 
+            /*canvas*/
             canvas.rotate(angle, cenX, cenY);
             canvas.scale(scaleX, scaleY, cenX, cenY);
             canvas.drawBitmap(pic, picX, picY, paint);
 
             pic.recycle();
         }
-    }
-
-    /*TODO: 밝기 까지 함, 뿌옇게 하는거랑 엠보싱 해야됨*/
-    public void clickIcons() {
-        zoomIn = findViewById(R.id.zoom_in);
-        zoomIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                scaleX += 0.2f;
-                scaleY += 0.2f;
-                graphicView.invalidate();
-            }
-        });
-        zoomOut = findViewById(R.id.zoom_out);
-        zoomOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                scaleX -= 0.2f;
-                scaleY -= 0.2f;
-                graphicView.invalidate();
-            }
-        });
-        Rotate = findViewById(R.id.rotate);
-        Rotate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                angle += 20;
-                graphicView.invalidate();
-            }
-        });
-        Bright = findViewById(R.id.bright);
-        Bright.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                seekBar.setVisibility(View.VISIBLE);
-            }
-        });
     }
 }
