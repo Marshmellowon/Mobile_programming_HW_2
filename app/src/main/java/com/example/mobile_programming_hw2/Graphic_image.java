@@ -125,7 +125,6 @@ public class Graphic_image extends AppCompatActivity {
 
             }
         });
-
     }
 
     private static class GraphicView extends View {

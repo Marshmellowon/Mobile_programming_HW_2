@@ -33,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.graphic:
                 Intent graphic = new Intent(getApplicationContext(), Graphic_image.class);
                 startActivity(graphic);
+            case R.id.adapter:
+                Intent adapter = new Intent(getApplicationContext(), Adapter_View.class);
+                startActivity(adapter);
         }
     }
 }
