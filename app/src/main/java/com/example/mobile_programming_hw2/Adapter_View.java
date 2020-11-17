@@ -30,10 +30,52 @@ public class Adapter_View extends AppCompatActivity {
 
         gV = findViewById(R.id.gridView);
         brand = findViewById(R.id.brand);
+        gallery = findViewById(R.id.gal);
 
-        gallery = findViewById(R.id.gallery);
+        Gallery gallery1;
+        gallery1 = new Gallery(this);
+
 
         Spinner();
+    }
+
+    public class Gallery extends BaseAdapter {
+        Context context;
+        Integer[] brand = {
+                R.drawable.adidas, R.drawable.carhatt,
+                R.drawable.imnot, R.drawable.cov,
+                R.drawable.markgon
+        };
+
+        public Gallery(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        public int getCount() {
+            return brand.length;
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            ImageView imageView = new ImageView(context);
+            imageView.setLayoutParams(new GridView.LayoutParams(200, 300));
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            imageView.setPadding(5, 5, 5, 5);
+
+            imageView.setImageResource(brand[i]);
+            return imageView;
+        }
     }
 
     public void Spinner() {
