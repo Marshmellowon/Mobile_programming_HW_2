@@ -46,11 +46,4 @@
         android:numColumns="2">
 
     </GridView>
-
-    <Gallery
-        android:id="@+id/gal"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:spacing="5dp" />
 </LinearLayout>

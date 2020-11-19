@@ -1,7 +1,9 @@
 package com.example.mobile_programming_hw2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +21,6 @@ import android.widget.Spinner;
 public class Adapter_View extends AppCompatActivity {
 
     GridView gV;
-    Gallery gallery;
     Spinner category, brand;
 
     @Override
@@ -30,52 +31,8 @@ public class Adapter_View extends AppCompatActivity {
 
         gV = findViewById(R.id.gridView);
         brand = findViewById(R.id.brand);
-        gallery = findViewById(R.id.gal);
-
-        Gallery gallery1;
-        gallery1 = new Gallery(this);
-
 
         Spinner();
-    }
-
-    public class Gallery extends BaseAdapter {
-        Context context;
-        Integer[] brand = {
-                R.drawable.adidas, R.drawable.carhatt,
-                R.drawable.imnot, R.drawable.cov,
-                R.drawable.markgon
-        };
-
-        public Gallery(Context context) {
-            this.context = context;
-        }
-
-        @Override
-        public int getCount() {
-            return brand.length;
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            ImageView imageView = new ImageView(context);
-            imageView.setLayoutParams(new GridView.LayoutParams(200, 300));
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            imageView.setPadding(5, 5, 5, 5);
-
-            imageView.setImageResource(brand[i]);
-            return imageView;
-        }
     }
 
     public void Spinner() {
@@ -110,7 +67,7 @@ public class Adapter_View extends AppCompatActivity {
 
     }
 
-    public static class MyGridView extends BaseAdapter {
+    public class MyGridView extends BaseAdapter {
         Context context;
 
 
@@ -148,11 +105,24 @@ public class Adapter_View extends AppCompatActivity {
             imageView.setPadding(5, 5, 5, 5);
 
             imageView.setImageResource(covernat[i]);
+            final int pos = i;
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    @SuppressLint("ViewHolder") View dialogView = View.inflate(Adapter_View.this, R.layout.dialog, null);
+                    AlertDialog.Builder dlog = new AlertDialog.Builder(Adapter_View.this);
+                    ImageView poster = dialogView.findViewById(R.id.poster);
+                    poster.setImageResource(covernat[pos]);
+                    dlog.setView(dialogView);
+                    dlog.setNegativeButton("닫기", null);
+                    dlog.show();
+                }
+            });
             return imageView;
         }
     }
 
-    public static class Viva extends BaseAdapter {
+    public class Viva extends BaseAdapter {
         Context context;
         Integer[] viva = {
                 R.drawable.viv1, R.drawable.viv2,
@@ -188,6 +158,19 @@ public class Adapter_View extends AppCompatActivity {
             imageView.setPadding(5, 5, 5, 5);
 
             imageView.setImageResource(viva[i]);
+            final int pos = i;
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    @SuppressLint("ViewHolder") View dialogView = View.inflate(Adapter_View.this, R.layout.dialog, null);
+                    AlertDialog.Builder dlog = new AlertDialog.Builder(Adapter_View.this);
+                    ImageView poster = dialogView.findViewById(R.id.poster);
+                    poster.setImageResource(viva[pos]);
+                    dlog.setView(dialogView);
+                    dlog.setNegativeButton("닫기", null);
+                    dlog.show();
+                }
+            });
             return imageView;
         }
     }
